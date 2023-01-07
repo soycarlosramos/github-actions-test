@@ -1,0 +1,12 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  hello_world:
+   runs-on: ubuntu-18.04
+   steps:
+    - name: Echo message
+      run: echo 'Hola mundo con github actions'
