@@ -11,4 +11,4 @@ jobs:
     - name: Echo message
       run: echo 'Hola mundo con github actions'
     - name: Math operation
-      run: echo 5 + 5
+      run: echo $(expr 7 + 7)
