@@ -10,3 +10,5 @@ jobs:
    steps:
     - name: Echo message
       run: echo 'Hola mundo con github actions'
+    - name: Math operation
+      run: echo 5 + 5
