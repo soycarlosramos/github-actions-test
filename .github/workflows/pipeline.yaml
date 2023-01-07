@@ -11,6 +11,9 @@ jobs:
     if: ${{github.event_name == 'push'}}
     runs-on: ubuntu-18.04
     steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action
+        with: ${{ github.token }}
       - name: Checkout
         uses: actions/checkout@v3
         with:
