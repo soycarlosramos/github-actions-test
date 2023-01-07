@@ -8,6 +8,7 @@ on:
     types: [opened, synchronize]
 jobs:
   Deploy:
+    if: ${{github.event_name == 'push'}}
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
@@ -21,5 +22,4 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Deploy
-        if: ${{github.event_name == 'push'}}
         run: echo Deploy
