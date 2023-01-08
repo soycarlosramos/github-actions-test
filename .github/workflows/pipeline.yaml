@@ -30,6 +30,7 @@ jobs:
       run: npm ci
       
   Deploy:
+    needs: [Build]
     if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
