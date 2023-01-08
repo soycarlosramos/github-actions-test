@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize]
 jobs:
   avoid_reduncy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.11.0
@@ -16,7 +16,7 @@ jobs:
           access_token: ${{ github.token }}
 
   Build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -30,8 +30,9 @@ jobs:
       run: npm ci
       
   Deploy:
+    needs: [Build]
     if: ${{ github.event_name == 'push' }}
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Deploy
         run: echo Deploy
